@@ -108,7 +108,7 @@ u13 = User.create( {
   :first_name => "ilikecheese",
   :last_name => "yes",
   :email => "ilikecheese@gmail.com",
-  :username => "ilikecheese,"
+  :username => "ilikecheese",
   :isadmin => false
 } )
 
