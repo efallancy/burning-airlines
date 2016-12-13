@@ -7,6 +7,11 @@ Flight.destroy_all
 User.destroy_all
 Airplane.destroy_all
 
+##There are 20 users, 2 airplanes, 6 flights and 20 reservations
+## We are only using 1 airplane (named "a1") and 1 flight (named "f1").
+## All 20 reservations refer to a reservation made on a1 and f1, Sydney to Melbourne
+
+
 ### Create User
 u1 = User.create( {
   :first_name => "Amy",
