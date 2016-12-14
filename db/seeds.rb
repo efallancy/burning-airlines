@@ -59,7 +59,7 @@ u5 = User.create( {
   :last_name => "Diab",
   :email => "rhys5690@gmail.com",
   :username => "rhys5690",
-  :isadmin => true,
+  :isadmin => false,
   :password => "chicken",
   :password_confirmation => "chicken"
 } )
