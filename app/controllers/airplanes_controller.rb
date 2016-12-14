@@ -10,6 +10,7 @@ class AirplanesController < ApplicationController
   # GET /airplanes/1
   # GET /airplanes/1.json
   def show
+    @airplane_seat_column = ( "A".."Z" ).to_a
   end
 
   # GET /airplanes/new

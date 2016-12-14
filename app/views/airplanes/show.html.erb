@@ -15,5 +15,19 @@
   <%= @airplane.columns %>
 </p>
 
+<div id="seatings" style="width: 80%; margin: 5px auto;">
+  <div class="headercolumn" style="text-align:center; background-color: gainsboro;">Front of the flight</div>
+  <% for row in 0..@airplane.rows %>
+    <div class="row" style="text-align:center">
+      <% for column in 0..@airplane.columns %>
+        <div class="seats" id="seat<%= ( row + 1 ).to_s + @airplane_seat_column[ column ] %>" style="width: 40px; height:25px; background-color: deeppink; display: inline-block; margin: 2px auto;">
+          <%= ( row + 1 ).to_s + @airplane_seat_column[ column ] %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="tailcolumn" style="text-align:center; background-color: gainsboro;">Back of the flight</div>
+</div>
+
 <%= link_to 'Edit', edit_airplane_path(@airplane) %> |
 <%= link_to 'Back', airplanes_path %>
