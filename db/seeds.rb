@@ -7,13 +7,21 @@ Flight.destroy_all
 User.destroy_all
 Airplane.destroy_all
 
+##There are 20 users, 2 airplanes, 6 flights and 20 reservations
+## We are only using 1 airplane (named "a1") and 1 flight (named "f1").
+## All 20 reservations refer to a reservation made on a1 and f1, Sydney to Melbourne
+
+
 ### Create User
 u1 = User.create( {
   :first_name => "Amy",
   :last_name => "Winehouse",
   :email => "amywinehouse@ga.co",
   :username => "amywinehouse",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
+
 } )
 
 u2 = User.create( {
@@ -21,7 +29,9 @@ u2 = User.create( {
   :last_name => "Cobain",
   :email => "kurt_cobain@ga.co",
   :username => "kurtc",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u3 = User.create( {
@@ -29,7 +39,9 @@ u3 = User.create( {
   :last_name => "Yulchin",
   :email => "anton_yulchin@ga.co",
   :username => "anton",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u4 = User.create( {
@@ -37,7 +49,9 @@ u4 = User.create( {
   :last_name => "Hendrix",
   :email => "jimi_hendrix@ga.co",
   :username => "jimihendix",
-  :isadmin => true
+  :isadmin => true,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u5 = User.create( {
@@ -45,7 +59,9 @@ u5 = User.create( {
   :last_name => "Diab",
   :email => "rhys5690@gmail.com",
   :username => "rhys5690",
-  :isadmin => true
+  :isadmin => true,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u6 = User.create( {
@@ -53,7 +69,9 @@ u6 = User.create( {
   :last_name => "Stupid",
   :email => "jstupid@gmail.com",
   :username => "jstupid",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u7 = User.create( {
@@ -61,7 +79,9 @@ u7 = User.create( {
   :last_name => "Whale",
   :email => "bluewhale@gmail.com",
   :username => "bluewhale",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u8 = User.create( {
@@ -69,7 +89,9 @@ u8 = User.create( {
   :last_name => "man",
   :email => "bigman@gmail.com",
   :username => "bigman",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u9 = User.create( {
@@ -77,7 +99,9 @@ u9 = User.create( {
   :last_name => "dog",
   :email => "smalldoggmail.com",
   :username => "smalldog",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u10 = User.create( {
@@ -85,7 +109,9 @@ u10 = User.create( {
   :last_name => "dog",
   :email => "bigdog@gmail.com",
   :username => "jstupid",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u11 = User.create( {
@@ -93,7 +119,9 @@ u11 = User.create( {
   :last_name => "joe",
   :email => "mrjoe@gmail.com",
   :username => "mrjoe",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u12 = User.create( {
@@ -101,7 +129,9 @@ u12 = User.create( {
   :last_name => "thedog",
   :email => "tellthedog@gmail.com",
   :username => "tellthedog",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u13 = User.create( {
@@ -109,7 +139,9 @@ u13 = User.create( {
   :last_name => "yes",
   :email => "ilikecheese@gmail.com",
   :username => "ilikecheese",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u14 = User.create( {
@@ -117,7 +149,9 @@ u14 = User.create( {
   :last_name => "stopit",
   :email => "stopit@gmail.com",
   :username => "stopit",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u15 = User.create( {
@@ -125,7 +159,9 @@ u15 = User.create( {
   :last_name => "there",
   :email => "hithere@gmail.com",
   :username => "hithere",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u16 = User.create( {
@@ -133,7 +169,9 @@ u16 = User.create( {
   :last_name => "away",
   :email => "goaway@gmail.com",
   :username => "jstupid",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u17 = User.create( {
@@ -141,7 +179,9 @@ u17 = User.create( {
   :last_name => "gone",
   :email => "nevergone@gmail.com",
   :username => "nevergone",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u18 = User.create( {
@@ -149,7 +189,9 @@ u18 = User.create( {
   :last_name => "dogs",
   :email => "ilikedogs@gmail.com",
   :username => "ilikedogs",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u19 = User.create( {
@@ -157,7 +199,9 @@ u19 = User.create( {
   :last_name => "yesido",
   :email => "ihatecats@gmail.com",
   :username => "ihatecats",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 u20 = User.create( {
@@ -165,7 +209,9 @@ u20 = User.create( {
   :last_name => "t",
   :email => "mrt@gmail.com",
   :username => "mrttoday",
-  :isadmin => false
+  :isadmin => false,
+  :password => "chicken",
+  :password_confirmation => "chicken"
 } )
 
 
