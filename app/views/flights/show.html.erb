@@ -27,3 +27,23 @@
 
 <%= link_to 'Edit', edit_flight_path(@flight) %> |
 <%= link_to 'Back', flights_path %>
+
+<div id="app">
+  <h1>This is where Backbone should be loaded</h1>
+</div>
+
+<script type="html/template" id="AppViewTemplate">
+  <h1>Our Secrets App</h1>
+  <div id="secretForm">
+    An instance of the SecretInputView should be loaded here
+  </div>
+  <ul id="secrets">
+    <!--
+      Many instances of the SecretView should be loaded here -->
+  </ul>
+</script>
+
+<script type="html/template" id="SecretInputViewTemplate">
+  <textarea placeholder="Tell me all of your secrets"></textarea>
+  <button>Submit</button>
+</script>
