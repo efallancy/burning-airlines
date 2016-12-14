@@ -22,13 +22,11 @@
         <td><%= flight.destination %></td>
         <td><%= flight.flight_datetime %></td>
         <td><%= flight.airplane_id %></td>
-
-
         <td><%= link_to 'Show', flight %></td>
-      <% if @current_user.present? && @current_user.isadmin %>
-        <td><%= link_to 'Edit', edit_flight_path(flight) %></td>
-        <td><%= link_to 'Destroy', flight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
+        <% if @current_user.present? && @current_user.isadmin %>
+          <td><%= link_to 'Edit', edit_flight_path(flight) %></td>
+          <td><%= link_to 'Destroy', flight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -37,8 +35,5 @@
 <br>
 
 <% if @current_user.present? && @current_user.isadmin %>
-
-<%= link_to 'New Flight', new_flight_path %> <br><br>
-<%= link_to 'New Airplane', new_airplane_path %>
-
+  <%= link_to 'New Flight', new_flight_path %><br />
 <% end %>
