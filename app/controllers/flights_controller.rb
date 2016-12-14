@@ -7,6 +7,30 @@ class FlightsController < ApplicationController
     @flights = Flight.all
   end
 
+  # GET /search
+  def search
+  end
+
+  # GET /flight/:id
+  def flight
+  end
+
+  # GET /search_by_query
+  def search_by_query
+    @flights = Flight.where( :origin => params[ :origin ], :destination => params[ :destination ] )
+
+    respond_to do | format |
+      if @flights.count > 0
+        format.json { render json: @flights }
+        format.html { render :search }
+      else
+        format.json { render json: { msg: "No data" } }
+        format.html { render :search }
+      end
+    end
+
+  end
+
   # GET /flights/1
   # GET /flights/1.json
   def show
@@ -28,10 +52,10 @@ class FlightsController < ApplicationController
 
     # Used to check the date and time being set
     flight_datetime_time = Time.new( flight_params[ "flight_datetime(1i)" ].to_i,
-                                    flight_params[ "flight_datetime(2i)" ].to_i,
-                                    flight_params[ "flight_datetime(3i)" ].to_i,
-                                    flight_params[ "flight_datetime(4i)" ].to_i,
-                                    flight_params[ "flight_datetime(5i)" ].to_i )
+                                     flight_params[ "flight_datetime(2i)" ].to_i,
+                                     flight_params[ "flight_datetime(3i)" ].to_i,
+                                     flight_params[ "flight_datetime(4i)" ].to_i,
+                                     flight_params[ "flight_datetime(5i)" ].to_i )
 
     respond_to do |format|
       # Only if the flight date and time set to greater than current date and time,

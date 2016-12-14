@@ -1,3 +1,18 @@
 // Place all the styles related to the Flights controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#flightsearch {
+  margin: 5px auto;
+  width: 80%;
+  text-align: center;
+}
+
+#searchform {
+  margin: 5px auto;
+  text-align: center;
+}
+
+#searchresult {
+  border: 1px solid green;
+  text-align: center;
+}
