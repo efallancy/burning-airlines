@@ -18,7 +18,7 @@ u1 = User.create( {
   :last_name => "Winehouse",
   :email => "amywinehouse@ga.co",
   :username => "amywinehouse",
-  :isadmin => false,
+  :isadmin => true,
   :password => "chicken",
   :password_confirmation => "chicken"
 
