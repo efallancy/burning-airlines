@@ -10,26 +10,31 @@
       </ul>
     </div>
   <% end %>
+  <% if flash[ :notice ] %>
+    <div class="notice"><%= flash[ :notice ] %></div>
+    <br />
+    <% flash[ :notice ] = "" %>
+  <% end %>
 
   <div class="field">
     <%= f.label :flight_num %><br>
-    <%= f.text_area :flight_num %>
+    <%= f.text_area :flight_num, :required => true %>
   </div>
   <div class="field">
     <%= f.label :origin %><br>
-    <%= f.text_area :origin %>
+    <%= f.text_area :origin, :required => true %>
   </div>
   <div class="field">
     <%= f.label :destination %><br>
-    <%= f.text_area :destination %>
+    <%= f.text_area :destination, :required => true %>
   </div>
   <div class="field">
     <%= f.label :flight_datetime %><br>
-    <%= f.datetime_select :flight_datetime %>
+    <%= f.datetime_select :flight_datetime, :default => Time.now %>
   </div>
   <div class="field">
     <%= f.label :airplane_id %><br>
-    <%= f.number_field :airplane_id %>
+    <%= f.collection_select :airplane_id, Airplane.all, :id, :name, { :prompt => "Select a plane" }, :required => true %>
   </div>
   <div class="actions">
     <%= f.submit %>

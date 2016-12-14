@@ -26,13 +26,28 @@ class FlightsController < ApplicationController
   def create
     @flight = Flight.new(flight_params)
 
+    # Used to check the date and time being set
+    flight_datetime_time = Time.new( flight_params[ "flight_datetime(1i)" ].to_i,
+                                    flight_params[ "flight_datetime(2i)" ].to_i,
+                                    flight_params[ "flight_datetime(3i)" ].to_i,
+                                    flight_params[ "flight_datetime(4i)" ].to_i,
+                                    flight_params[ "flight_datetime(5i)" ].to_i )
+
     respond_to do |format|
-      if @flight.save
-        format.html { redirect_to @flight, notice: 'Flight was successfully created.' }
-        format.json { render :show, status: :created, location: @flight }
+      # Only if the flight date and time set to greater than current date and time,
+      #  then proceed to create flight
+      if flight_datetime_time > DateTime.now.to_time
+        if @flight.save
+          p "I was here just now"
+          format.html { redirect_to @flight, notice: 'Flight was successfully created.' }
+          format.json { render :show, status: :created, location: @flight }
+        end
       else
+        flash[ :notice ] = "Date or time should be greater than current date and time"
         format.html { render :new }
-        format.json { render json: @flight.errors, status: :unprocessable_entity }
+        format.json { render json: @flight.errors,
+                             status: :unprocessable_entity,
+                             :msg => "Date or time should be greater than current date and time" }
       end
     end
   end
@@ -40,13 +55,27 @@ class FlightsController < ApplicationController
   # PATCH/PUT /flights/1
   # PATCH/PUT /flights/1.json
   def update
+    # Used to check the date and time being set
+    flight_datetime_time = Time.new( flight_params[ "flight_datetime(1i)" ].to_i,
+                                    flight_params[ "flight_datetime(2i)" ].to_i,
+                                    flight_params[ "flight_datetime(3i)" ].to_i,
+                                    flight_params[ "flight_datetime(4i)" ].to_i,
+                                    flight_params[ "flight_datetime(5i)" ].to_i )
+
     respond_to do |format|
-      if @flight.update(flight_params)
-        format.html { redirect_to @flight, notice: 'Flight was successfully updated.' }
-        format.json { render :show, status: :ok, location: @flight }
+      # Only if it is set to have the time being updated greater than current time,
+      #   then can proceed on updating it
+      if flight_datetime_time > DateTime.now.to_time
+        if @flight.update(flight_params)
+          format.html { redirect_to @flight, notice: 'Flight was successfully updated.' }
+          format.json { render :show, status: :ok, location: @flight }
+        end
       else
+        flash[ :notice ] = "Date or time should be greater than current date and time"
         format.html { render :edit }
-        format.json { render json: @flight.errors, status: :unprocessable_entity }
+        format.json { render json: @flight.errors,
+                             status: :unprocessable_entity,
+                             :msg => "Date or time should be greater than current date and time" }
       end
     end
   end
