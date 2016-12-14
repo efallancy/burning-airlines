@@ -32,4 +32,8 @@
 
 <br>
 
+<% if @current_user.present? && @current_user.isadmin %>
+
 <%= link_to 'New Flight', new_flight_path %>
+
+<% end %>

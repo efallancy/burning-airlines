@@ -7,7 +7,13 @@ class SessionController < ApplicationController
   def create
     user = User.find_by :email => params[:email]
 
-    if user.present? && user.authenticate( params[:password] )
+  if user.present? && user.authenticate( params[:password] ) && user.isadmin
+        flash[:success] = "Y0!"
+        session[:user_id] = user.id
+
+        redirect_to admin_path
+
+  elsif user.present? && user.authenticate( params[:password] )
       flash[:success] = "Y0!"
       session[:user_id] = user.id
 
@@ -20,6 +26,6 @@ class SessionController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to root_path()
   end
 end

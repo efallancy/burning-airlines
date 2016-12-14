@@ -17,8 +17,11 @@ Rails.application.routes.draw do
   resources :users
 
 
-  get '/login' => 'session#new'  # sign-in page
+  get '/login' => 'session#new', :as => 'login'  # sign-in page
   post '/login' => 'session#create' #
   delete '/login' => 'session#destroy' # path to log-out
+  get '/admin' => 'pages#new' #path to admin log in
+
+
 
 end
