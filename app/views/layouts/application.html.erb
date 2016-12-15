@@ -5,13 +5,14 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Cantarell|Lato|Roboto" rel="stylesheet">
 </head>
 <body>
 
   <nav>
     <ul>
       <li>
-        <%= link_to "Home", root_path %> |
+        <%= link_to "Burning airlines", root_path %> |
       </li>
       <li>
         <%= link_to "Search", search_path %> |
@@ -43,6 +44,24 @@
       </span>
     <%# end %> -->
   </nav>
+
+  <header class="wrapper">
+    <section class="content">
+      <h1>Welcome to the probably the best online booking ..</h1>
+    </section>
+    <button>
+      Search your flight!
+    </button>
+    <div class="white_board">
+      <div id="flightsearch">
+        <h2>Search available flights</h2>
+        <div id="searchform">
+        </div>
+        <br />
+        <div id="searchresult" style="width: 80%; margin: 3px auto;"></div>
+      </div>
+    </div>
+  </header>
 
   <div class="container">
     <%= yield %>

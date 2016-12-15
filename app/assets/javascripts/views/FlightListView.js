@@ -17,7 +17,7 @@ app.FlightListView = Backbone.View.extend( {
     var flightDetail = resultTemplate( this.model.toJSON() );
     var flight = this.$el.html( flightDetail );
 
-    $( "#searchresult" ).append( flight ); // Append the search result
+    $( ".white_board" ).append( flight ); // Append the search result
   }
 
 } );
