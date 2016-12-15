@@ -9,7 +9,7 @@ app.FlightView = Backbone.View.extend( {
 
   seatClicked: function (e) {
     var thisFlight = this.model.toJSON();
-    
+
     if ( thisFlight.user !== null ) {
     // this code should only run if e.currentTarget does not have class of .reserved
     var row = $(e.currentTarget).data("row");
@@ -79,7 +79,40 @@ app.FlightView = Backbone.View.extend( {
         $( "#flightsearch" ).append( $row );
       }
     };
+    var renderBookedSeatPlan = function () {
+      var seats = $( ".seat" );
+
+      var flightReservations = thisFlight.reservations;
+
+      for ( var i = 0; i < seats.length; i++ ) {
+        var seat = seats[ i ];
+
+        for ( var j = 0; j < flightReservations.length; j++ ) {
+          var seating = ( flightReservations[ j ].seat_row + flightReservations[ j ].seat_column );
+
+           if ( seating === seat.id ) {
+             var seatReserved = "#" + String( seat.id );
+             console.log( seatReserved );
+             if ( thisFlight.user !== null ) {
+               if ( flightReservations[ j ].user_id === thisFlight.user.id ) {
+                // seat.className = "seat taken";
+                console.log( $( seatReserved ).html() );
+                $( seatReserved ).css( "background", "tomato" );
+                seat.innerHTML = thisFlight.user.first_name;
+               }
+             }
+             else {
+               $( seatReserved ).css( "background", "tomato" );
+               seat.innerHTML = "Sold";
+             }
+           }
+
+        }
+      }
+    };
     drawSeatPlan(rows, columns);
+    renderBookedSeatPlan();
+
     // debugger;
     var reservations = thisFlight.reservations;
 
