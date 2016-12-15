@@ -1,2 +1,5 @@
-json.extract! flight, :id, :flight_num, :origin, :destination, :flight_datetime, :airplane_id, :created_at, :updated_at
+json.extract! flight, :id, :flight_num, :origin, :destination, :created_at, :updated_at
+json.flight_date flight.flight_datetime.strftime( "%d-%b-%Y" )
+json.flight_time flight.flight_datetime.strftime( "%I:%M%p" )
+json.airplane_name flight.airplane.name
 json.url flight_url(flight, format: :json)

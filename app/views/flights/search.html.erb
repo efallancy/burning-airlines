@@ -1,7 +1,39 @@
 <br />
 
+
+<div id="flightsearch">
+  <h2>Search available flights</h2>
+  <div id="searchform">
+  </div>
+  <br />
+  <div id="searchresult" style="width: 80%; margin: 3px auto;"></div>
+</div>
+
+<script type="html/template" id="SearchResultHeaderTemplate">
+  <table>
+    <thead>
+      <tr>
+        <th>Flight Number</th>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Airplane Name</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</script>
+
 <script type="html/template" id="SearchResultTemplate">
-  <%%= flight_num %> | <%%= origin %> -> <%%= destination %> | <%%= flight_datetime %> | <%%= airplane_id %>
+  <tr>
+    <td><%%= flight_num %></td>
+    <td><%%= origin %></td>
+    <td><%%= destination %></td>
+    <td><%%= flight_date %></td>
+    <td><%%= flight_time %></td>
+    <td><%%= airplane_name %></td>
+  </tr>
 </script>
 
 <script type="html/template" id="SearchFormTemplate">
