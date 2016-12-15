@@ -11,7 +11,7 @@ app.FlightView = Backbone.View.extend( {
     this.$el.html( "" );
 
     this.$el.append( reservationTemplate ); // This is basically dummy heading
-  
+
     var thisFlight = this.model.toJSON();
     this.$el.append( flightView( thisFlight) ); // Append the detail of the flight
 
@@ -25,6 +25,8 @@ app.FlightView = Backbone.View.extend( {
 
         for (var j = 0; j < columns; j += 1 ) {
           var $seat = $("<div>").addClass("seat");
+          $seat.html("r"+(i+1)+"c"+(j+1));
+          $seat.attr('id', 'r'+(i+1)+'c'+(j+1));
 
           $row.append( $seat );
         }
