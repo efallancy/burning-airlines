@@ -13,10 +13,7 @@
   <nav>
     <ul>
       <li class="logo">
-        <%= link_to "Burning airlines", root_path %>
-      </li>
-      <li>
-        <%= link_to "Search", search_path %>
+        <%= link_to "Burning airlines", search_path %>
       </li>
       <% unless @current_user.present? %>
         <li class="nav_right">

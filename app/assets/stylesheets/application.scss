@@ -29,7 +29,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Cantarell" ; // Lato', sans-serif; //  'Roboto'
+  font-family: "Cantarell" ;
   color: white;
 }
 
@@ -52,8 +52,15 @@ a {
 }
 
 h1 {
-  font-size: 2.6em;
+  font-size: 2.9em;
   margin-top: 100px;
+  font-family: "Oswald";
+  letter-spacing: 1.5px;
+}
+
+h2 {
+  font-size: 2.2em;
+  margin-bottom: 5px;
 }
 
 .wrapper {
@@ -61,13 +68,12 @@ h1 {
 }
 
 button {
+  color: white;
+  background-color: #A31621; // red
+  border:  #A31621;
   text-transform: uppercase;
-  font-size: 0.9em;
-  font-family: "Roboto";
+  font-size: 0.8em;
   font-weight: bold;
-  color: #1B1A1A;
-  background-color: white;
-  border: white;
   outline: none;
   padding: 15px 20px;
   border-radius: 2px;
@@ -76,11 +82,16 @@ button {
   margin-top: 20px;
 }
 
-button:hover {
-  font-size: 1em;
-  padding: 16px 21px;
-  transition: 0.7s;
+
+.filter_button {
+  margin-left: 20px;
+  padding: 10px 20px;
 }
+
+// button:hover {
+//   font-size: 1em;
+//   transition: 0.5s;
+// }
 
 .action {
   color: pink;
@@ -93,10 +104,24 @@ button:hover {
   margin: auto;
   width: 1000px;
   min-height: 30vh;
-  margin-top: 100px;
-  padding: 40px;
+  margin-top: 20px;
+  padding: 20px;
   display: none;
   color: #1B1A1A;
+}
+
+
+input {
+  border: 1px solid black;
+  width: 200px;
+  height: 40px;
+  padding-left: 8px;
+  margin-left: 10px;
+}
+
+::-webkit-input-placeholder {
+  color: #1B1A1A;
+  letter-spacing: 0.8px;
 }
 
 

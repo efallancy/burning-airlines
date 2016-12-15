@@ -3,6 +3,18 @@ var app = app || {};
 app.FlightView = Backbone.View.extend( {
   el: "#flightsearch",
 
+  events: {
+    'click .seat': 'seatClicked'
+  },
+
+  seatClicked: function (e) {
+    $(e.currentTarget).css("background", "tomato");
+    var row = $(e.currentTarget).data("row");
+    var column = $(e.currentTarget).data("column");
+    console.log( row, column );
+    $(e.currentTarget).addClass("taken");
+  },
+
   render: function () {
     var reservationTemplate = _.template( $( "#FlightReservationTemplate" ).html() );
 
@@ -25,13 +37,17 @@ app.FlightView = Backbone.View.extend( {
 
         for (var j = 0; j < columns; j += 1 ) {
           var $seat = $("<div>").addClass("seat");
+
           $seat.html("r"+(i+1)+"c"+(j+1));
           $seat.attr('id', 'r'+(i+1)+'c'+(j+1));
+
+          $seat.attr("data-row", i + 1);
+          $seat.attr("data-column", j + 1);
 
           $row.append( $seat );
         }
 
-        $("#plane").append( $row );
+        $("#flightsearch").append( $row );
       }
     };
     drawSeatPlan(rows, columns);
