@@ -7,12 +7,23 @@ app.FlightView = Backbone.View.extend( {
     'click .seat': 'seatClicked'
   },
 
+
   seatClicked: function ( e ) {
+var thisFlight = this.model.toJSON();
+if (thisFlight.user !== null) {
+
     $( e.currentTarget ).css( "background", "tomato" );
     var row = $( e.currentTarget ).data( "row" );
     var column = $(e.currentTarget).data("column");
     console.log( row, column);
     $( e.currentTarget ).addClass( "taken" );
+    $( e.currentTarget ).html(thisFlight.user.first_name);
+  }
+else {
+    alert("You Must Be Logged In To Book");
+  }
+
+
   },
 
   render: function () {
