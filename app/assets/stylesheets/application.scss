@@ -33,6 +33,10 @@ body {
   color: white;
 }
 
+.container {
+  text-align: center;
+}
+
 li {
   display: inline-block;
   padding: 18px;
@@ -88,11 +92,6 @@ button {
   padding: 10px 20px;
 }
 
-// button:hover {
-//   font-size: 1em;
-//   transition: 0.5s;
-// }
-
 .action {
   color: pink;
 }
@@ -108,6 +107,12 @@ button {
   padding: 20px;
   display: none;
   color: #1B1A1A;
+}
+
+.white_board_login {
+  @extend .white_board;
+  display: block;
+  text-align: center;
 }
 
 
