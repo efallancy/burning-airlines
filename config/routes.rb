@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #
   # get 'session/destroy'
 
-  root 'flights#index' # Routing for home page will show the flights available
+  root 'flights#search' # Routing for home page will show the flights available
 
   resources :reservations
   resources :flights
