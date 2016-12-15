@@ -9,6 +9,7 @@
   table {
     width: 80%;
     margin: 3px auto;
+
   }
 }
 
@@ -24,5 +25,11 @@
 
   table {
     margin: 5px auto;
+    thead {
+      th {
+        width: 30px;
+      }
+    }
+
   }
 }
