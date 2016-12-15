@@ -11,7 +11,27 @@ app.FlightView = Backbone.View.extend( {
 
     this.$el.append( reservationTemplate ); // This is basically dummy heading
 
-    this.$el.append( flightView( this.model.toJSON() ) ); // Append the detail of the flight
+    var thisFlight = this.model.toJSON();
+    this.$el.append( flightView( thisFLight) ); // Append the detail of the flight
+
+    var rows = thisFLight.airplane.rows;
+    var columns = thisFLight.airplane.columns;
+    console.log(rows, columns);
+
+    var drawSeatPlan = function ( rows, columns ) {
+      for ( var i = 0; i < rows; i += 1 ) {
+        var $row = $("<div>").addClass("row");
+
+        for (var j = 0; j < columns; j += 1 ) {
+          var $seat = $("<div>").addClass("seat");
+
+          $row.append( $seat );
+        }
+
+        $("#plane").append( $row );
+      }
+    };
+    drawSeatPlan(rows, columns);
   }
 
 } );
