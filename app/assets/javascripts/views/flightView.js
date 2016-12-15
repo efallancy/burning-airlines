@@ -37,8 +37,13 @@ app.FlightView = Backbone.View.extend( {
 
         for (var j = 0; j < columns; j += 1 ) {
           var $seat = $("<div>").addClass("seat");
+
+          $seat.html("r"+(i+1)+"c"+(j+1));
+          $seat.attr('id', 'r'+(i+1)+'c'+(j+1));
+
           $seat.attr("data-row", i + 1);
           $seat.attr("data-column", j + 1);
+
           $row.append( $seat );
         }
 
