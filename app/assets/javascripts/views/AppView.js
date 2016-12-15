@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.AppView = Backbone.View.extend( {
-  el: ".white_board",
+  el: "#searchform",
 
   events: {
     "click button": "filterFlightSearch"
