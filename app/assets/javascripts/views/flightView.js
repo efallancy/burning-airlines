@@ -9,6 +9,7 @@ app.FlightView = Backbone.View.extend( {
 
 
   seatClicked: function (e) {
+    // this code should only run if e.currentTarget does not have class of .reserved
     var row = $(e.currentTarget).data("row");
     var column = $(e.currentTarget).data("column");
     console.log( row, column );
@@ -16,6 +17,23 @@ app.FlightView = Backbone.View.extend( {
     // Create a new reservation model
     var reservation = new app.Reservation();
     // Now we need to set all the attributes of that Reservation model.
+    var thisFlight = this.model.toJSON();
+
+    reservation.set( {
+      seat_row: row,
+      seat_column: column,
+      flight_id: thisFlight.id,
+      user_id: thisFlight.user.id
+    } );
+
+    reservation.save();
+
+    // Render the view
+
+
+
+
+
     // That reservation modelneeds to have a user_id of the current_user's id.
     // That reservation model needs to have a flight_id of the current_flight's id.
     // That reservation needs to be saved to the database.
@@ -36,7 +54,6 @@ app.FlightView = Backbone.View.extend( {
     var rows = thisFlight.airplane.rows;
     var columns = thisFlight.airplane.columns;
     console.log(rows, columns);
-
     var drawSeatPlan = function ( rows, columns ) {
       for ( var i = 0; i < rows; i += 1 ) {
         var $row = $("<div>").addClass("row");
@@ -57,6 +74,14 @@ app.FlightView = Backbone.View.extend( {
       }
     };
     drawSeatPlan(rows, columns);
+    // debugger;
+    var reservations = thisFlight.reservations;
+    _.each(reservations, function(reservation) {
+      console.log(reservation);
+      // reservation's seat_row and seat_column
+      // div's data-row and data-column
+      // if those two things match, add the class of .reserved
+    });
   }
 
 } );
