@@ -155,3 +155,7 @@ div.seat {
   float: left;
   background: dodgerblue;
 }
+
+div.seat.taken {
+  background-color: tomato;
+}

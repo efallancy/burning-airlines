@@ -59,10 +59,10 @@ class FlightsController < ApplicationController
 
 
     @airplane = @flight.airplane
-    @row = @airplane.rows
-    @columns = @airplane.columns
-    
-    @number_of_seats = @rows * @columns
+    # @row = @airplane.rows
+    # @columns = @airplane.columns
+    #
+    # @number_of_seats = @rows * @columns
     # @number_of_seats.times do
     #   r = Reservation.create({:flight_id = @flight.id});
     # end

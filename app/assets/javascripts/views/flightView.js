@@ -8,11 +8,17 @@ app.FlightView = Backbone.View.extend( {
   },
 
   seatClicked: function (e) {
-    $(e.currentTarget).css("background", "tomato");
     var row = $(e.currentTarget).data("row");
     var column = $(e.currentTarget).data("column");
     console.log( row, column );
-    $(e.currentTarget).addClass("taken");
+    $(e.currentTarget).toggleClass("taken");
+    // Create a new reservation model
+    var reservation = new app.Reservation();
+    // Now we need to set all the attributes of that Reservation model.
+    // That reservation modelneeds to have a user_id of the current_user's id.
+    // That reservation model needs to have a flight_id of the current_flight's id.
+    // That reservation needs to be saved to the database.
+
   },
 
   render: function () {
