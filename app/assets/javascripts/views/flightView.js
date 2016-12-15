@@ -7,12 +7,12 @@ app.FlightView = Backbone.View.extend( {
     'click .seat': 'seatClicked'
   },
 
-  seatClicked: function (e) {
-    $(e.currentTarget).css("background", "tomato");
-    var row = $(e.currentTarget).data("row");
+  seatClicked: function ( e ) {
+    $( e.currentTarget ).css( "background", "tomato" );
+    var row = $( e.currentTarget ).data( "row" );
     var column = $(e.currentTarget).data("column");
-    console.log( row, column );
-    $(e.currentTarget).addClass("taken");
+    console.log( row, column);
+    $( e.currentTarget ).addClass( "taken" );
   },
 
   render: function () {
@@ -25,7 +25,7 @@ app.FlightView = Backbone.View.extend( {
     this.$el.append( reservationTemplate ); // This is basically dummy heading
 
     var thisFlight = this.model.toJSON();
-    this.$el.append( flightView( thisFlight) ); // Append the detail of the flight
+    this.$el.append( flightView( thisFlight ) ); // Append the detail of the flight
 
     var rows = thisFlight.airplane.rows;
     var columns = thisFlight.airplane.columns;
@@ -38,16 +38,16 @@ app.FlightView = Backbone.View.extend( {
         for (var j = 0; j < columns; j += 1 ) {
           var $seat = $("<div>").addClass("seat");
 
-          $seat.html("r"+(i+1)+"c"+(j+1));
-          $seat.attr('id', 'r'+(i+1)+'c'+(j+1));
+          $seat.html("r"+(i+1)+"c"+(j+1)); // Change this to accept alphabatical,  E.g 21B
+          $seat.attr('id', 'r'+(i+1)+'c'+(j+1)); // Change this to accept alphabatical for column
 
           $seat.attr("data-row", i + 1);
-          $seat.attr("data-column", j + 1);
+          $seat.attr("data-column", j + 1); // Change this to accept alphabatical
 
           $row.append( $seat );
         }
 
-        $("#flightsearch").append( $row );
+        $( "#flightsearch" ).append( $row );
       }
     };
     drawSeatPlan(rows, columns);
