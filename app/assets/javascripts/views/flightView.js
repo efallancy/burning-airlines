@@ -11,26 +11,33 @@ app.FlightView = Backbone.View.extend( {
     var thisFlight = this.model.toJSON();
 
     if ( thisFlight.user !== null ) {
-    // this code should only run if e.currentTarget does not have class of .reserved
-    var row = $(e.currentTarget).data("row");
-    var column = $(e.currentTarget).data("column");
-    console.log( row, column );
-    $(e.currentTarget).toggleClass("taken");
-    $( e.currentTarget ).html( thisFlight.user.first_name );
-    // Create a new reservation model
-    var reservation = new app.Reservation();
-    // Now we need to set all the attributes of that Reservation model.
 
-    reservation.set( {
-      seat_row: row,
-      seat_column: column,
-      flight_id: thisFlight.id,
-      user_id: thisFlight.user.id
-    } );
+      if ( !$( e.currentTarget ).hasClass( "taken" ) ) {
+        // this code should only run if e.currentTarget does not have class of .reserved
+        var row = $(e.currentTarget).data("row");
+        var column = $(e.currentTarget).data("column");
 
-    reservation.save();
+        $( e.currentTarget ).toggleClass( "taken" );
+        $( e.currentTarget ).html( thisFlight.user.first_name );
+        // Create a new reservation model
+        var reservation = new app.Reservation();
+        // Now we need to set all the attributes of that Reservation model.
+
+        reservation.set( {
+          seat_row: row,
+          seat_column: column,
+          flight_id: thisFlight.id,
+          user_id: thisFlight.user.id
+        } );
+
+        reservation.save();
+      }
+      else {
+        alert( "Are you nuts?! That seat has been taken" );
+      }
+
     }
-  else {
+    else {
       alert("You Must Be Logged In To Book");
     }
 
@@ -99,15 +106,18 @@ app.FlightView = Backbone.View.extend( {
                 // seat.className = "seat taken";
                 console.log( $( seatReserved ).html() );
                 $( seatReserved ).css( "background", "deeppink" );
+                $( seatReserved ).toggleClass( "taken" );
                 seat.innerHTML = thisFlight.user.first_name;
                }
                else {
                  $( seatReserved ).css( "background", "tomato" );
+                 $( seatReserved ).toggleClass( "taken" );
                  seat.innerHTML = "Sold";
                }
              }
              else {
                $( seatReserved ).css( "background", "tomato" );
+               $( seatReserved ).toggleClass( "taken" );
                seat.innerHTML = "Sold";
              }
            }
