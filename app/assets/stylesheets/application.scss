@@ -95,8 +95,24 @@ button:hover {
   color: gray;
 }
 
-// .search_field {
-//   background-color: #A31621;
-//   width: 200px;
-//   margin: auto;
-// }
+
+div#plane {
+/*   width: 500px; */
+  padding: 10px;
+  overflow: hidden;
+}
+
+.row {
+  clear: both;
+  margin-bottom: 10px;
+  overflow: hidden;
+  display: block;
+}
+
+div.seat {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  float: left;
+  background: dodgerblue;
+}

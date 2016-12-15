@@ -57,6 +57,14 @@ class FlightsController < ApplicationController
                                      flight_params[ "flight_datetime(4i)" ].to_i,
                                      flight_params[ "flight_datetime(5i)" ].to_i )
 
+
+    @airplane = @flight.airplane
+    @row = @airplane.rows
+    @columns = @airplane.columns
+    @number_of_seats = @rows * @columns
+    # @number_of_seats.times do 
+    #   r = Reservation.create({:flight_id = @flight.id});
+    # end
     respond_to do |format|
       # Only if the flight date and time set to greater than current date and time,
       #  then proceed to create flight
