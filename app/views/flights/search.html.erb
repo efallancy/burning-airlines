@@ -1,13 +1,15 @@
 <br />
 
-<div id="flightsearch">
-  <!-- <h2>Search available flights</h2> -->
-  <div id="searchform">
+
+<div class="white_board">
+  <div id="flightsearch">
+    <h2>Search available flights</h2>
+    <div id="searchform"></div>
+    <br />
+    <div id="searchresult" style="width: 80%; margin: 3px auto;"></div>
   </div>
-  <br />
-  <div id="searchresult" style="width: 80%; margin: 3px auto;"></div>
+  <div id="plane"></div>
 </div>
-<div id="plane"></div>
 
 <script type="html/template" id="SearchResultHeaderTemplate">
   <table>
@@ -26,15 +28,39 @@
 </script>
 
 <script type="html/template" id="SearchResultTemplate">
-  <tr>
     <td><%%= flight_num %></td>
     <td><%%= origin %></td>
     <td><%%= destination %></td>
     <td><%%= flight_date %></td>
     <td><%%= flight_time %></td>
     <td><%%= airplane_name %></td>
-  </tr>
 </script>
+
+<script type="html/template" id="SingleSearchResultTemplate">
+   <table>
+     <thead>
+       <tr>
+         <th>Flight Number</th>
+         <th>Origin</th>
+         <th>Destination</th>
+         <th>Date</th>
+         <th>Time</th>
+         <th>Airplane Name</th>
+       </tr>
+     </thead>
+     <tbody>
+        <tr>
+          <td><%%= flight_num %></td>
+          <td><%%= origin %></td>
+          <td><%%= destination %></td>
+          <td><%%= flight_date %></td>
+          <td><%%= flight_time %></td>
+          <td><%%= airplane_name %></td>
+        </tr>
+     </tbody>
+  </table>
+</script>
+
 
 <script type="html/template" id="SearchFormTemplate">
   <div>

@@ -5,17 +5,18 @@ app.FlightView = Backbone.View.extend( {
 
   render: function () {
     var reservationTemplate = _.template( $( "#FlightReservationTemplate" ).html() );
-    var flightView = _.template( $( "#SearchResultTemplate" ).html() );
+
+    var flightView = _.template( $( "#SingleSearchResultTemplate" ).html() );
 
     this.$el.html( "" );
 
     this.$el.append( reservationTemplate ); // This is basically dummy heading
-
+  
     var thisFlight = this.model.toJSON();
-    this.$el.append( flightView( thisFLight) ); // Append the detail of the flight
+    this.$el.append( flightView( thisFlight) ); // Append the detail of the flight
 
-    var rows = thisFLight.airplane.rows;
-    var columns = thisFLight.airplane.columns;
+    var rows = thisFlight.airplane.rows;
+    var columns = thisFlight.airplane.columns;
     console.log(rows, columns);
 
     var drawSeatPlan = function ( rows, columns ) {

@@ -104,6 +104,11 @@ div#plane {
 /*   width: 500px; */
   padding: 10px;
   overflow: hidden;
+
+  .row {
+    padding: 1px calc( 100% / 3 );
+    text-align: center;
+  }
 }
 
 .row {

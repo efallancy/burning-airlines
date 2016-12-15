@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.FlightListView = Backbone.View.extend( {
-  tagName: "td",
+  tagName: "tr",
 
   events: {
     "click": "viewFlightReservation"
@@ -21,10 +21,9 @@ app.FlightListView = Backbone.View.extend( {
     var flightDetail = resultTemplate( this.model.toJSON() );
     var flight = this.$el.html( flightDetail );
 
+    console.log( this.$el );
 
-    $( ".white_board" ).append( $( "tbody" ).append( this.$el.html() ) ); // Append the search result
-
-     // Append the search result
+    $( "tbody" ).append( this.$el ); // Append the search result
 
   }
 
