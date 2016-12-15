@@ -21,7 +21,6 @@ app.FlightListView = Backbone.View.extend( {
     var flightDetail = resultTemplate( this.model.toJSON() );
     var flight = this.$el.html( flightDetail );
 
-    console.log( this.$el );
 
     $( "tbody" ).append( this.$el ); // Append the search result
 

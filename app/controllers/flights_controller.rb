@@ -9,6 +9,7 @@ class FlightsController < ApplicationController
 
   # GET /search
   def search
+    @airplane_seat_column = ( "A".."Z" ).to_a
   end
 
   # GET /flight/:id
@@ -34,6 +35,7 @@ class FlightsController < ApplicationController
   # GET /flights/1
   # GET /flights/1.json
   def show
+    @airplane_seat_column = ( "A".."Z" ).to_a
   end
 
   # GET /flights/new
@@ -59,10 +61,17 @@ class FlightsController < ApplicationController
 
 
     @airplane = @flight.airplane
+
     # @row = @airplane.rows
     # @columns = @airplane.columns
     #
     # @number_of_seats = @rows * @columns
+
+    @row = @airplane.rows
+    @columns = @airplane.columns
+
+    @number_of_seats = @rows * @columns
+
     # @number_of_seats.times do
     #   r = Reservation.create({:flight_id = @flight.id});
     # end
