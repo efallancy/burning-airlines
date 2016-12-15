@@ -5,23 +5,24 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href="https://fonts.googleapis.com/css?family=Cantarell|Lato|Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cantarell|Lato|Oswald|Roboto" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Cantarell|Lato|Roboto" rel="stylesheet"> -->
 </head>
 <body>
 
   <nav>
     <ul>
-      <li>
-        <%= link_to "Burning airlines", root_path %> |
+      <li class="logo">
+        <%= link_to "Burning airlines", root_path %>
       </li>
       <li>
-        <%= link_to "Search", search_path %> |
+        <%= link_to "Search", search_path %>
       </li>
       <% unless @current_user.present? %>
-        <li>
-          <%= link_to "Sign Up", new_user_path %> |
+        <li class="nav_right">
+          <%= link_to "Sign Up", new_user_path %>
         </li>
-        <li>
+        <li class="nav_right">
           <%= link_to "Login", login_path %>
         </li>
       <% else %>
