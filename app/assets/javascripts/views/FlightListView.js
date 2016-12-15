@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.FlightListView = Backbone.View.extend( {
-  tagName: "div",
+  tagName: "td",
 
   events: {
     "click": "viewFlightReservation"
@@ -13,11 +13,15 @@ app.FlightListView = Backbone.View.extend( {
   },
 
   render: function () {
+    if ( $( "table" ).length === 0 ) {
+      $( "#searchresult" ).append( $( "#SearchResultHeaderTemplate" ).html() );  
+    }
+
     var resultTemplate = _.template( $( "#SearchResultTemplate" ).html() );
     var flightDetail = resultTemplate( this.model.toJSON() );
     var flight = this.$el.html( flightDetail );
 
-    $( "#searchresult" ).append( flight ); // Append the search result
+    $( "tbody" ).append( this.$el.html() ); // Append the search result
   }
 
 } );
