@@ -13,31 +13,30 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br>
+    <%= f.label :first_name %>
     <%= f.text_area :first_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br>
+    <%= f.label :last_name %>
     <%= f.text_area :last_name %>
   </div>
   <div class="field">
-    <%= f.label :username %><br>
+    <%= f.label :username %>
     <%= f.text_area :username %>
   </div>
-
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email %>
     <%= f.text_area :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br>
+    <%= f.label :password %>
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br>
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "login_button" %>
   </div>
 <% end %>

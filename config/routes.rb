@@ -8,8 +8,11 @@ Rails.application.routes.draw do
 
   root 'flights#search' # Routing for home page will show the flights available
 
-  resources :reservations
-  resources :flights
+  resources :flights do
+    member do
+      resources :reservations
+    end
+  end
   resources :airplanes
   resources :users
 
