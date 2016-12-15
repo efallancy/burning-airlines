@@ -1,19 +1,18 @@
 
 <div class="white_board_login">
-  <!-- <h2>Log In To Book Your Flight!</h2> -->
+  <h2>Log In To Book Your Flight!</h2>
+    <%= form_tag login_path do %>
+    <p>
+      <%= label_tag :email %>
+      <%= email_field_tag :email, "", :required => true, class: "input" %>
+    </p>
 
-  <%= form_tag login_path do %>
-  <p>
-    <%= label_tag :email %>
-    <%= email_field_tag :email, "", :required => true, class: "input" %>
-  </p>
+    <p>
+      <%= label_tag :password %>
+      <%= password_field_tag :password, "", :required => true, class: "input" %>
+    </p>
 
-  <p>
-    <%= label_tag :password %>
-    <%= password_field_tag :password, "", :required => true, class: "input" %>
-  </p>
+    <%= submit_tag "Login", class: "login_button" %>
+    <% end %>
 
-
-  <%= submit_tag "Login", class: "login_button" %>
-  <% end %>
 </div>
