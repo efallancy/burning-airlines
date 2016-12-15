@@ -67,8 +67,8 @@ app.FlightView = Backbone.View.extend( {
         for (var j = 0; j < columns; j += 1 ) {
           var $seat = $("<div>").addClass("seat");
 
-          $seat.html("r"+(i+1)+"c"+(j+1)); // Change this to accept letters
-          $seat.attr('id', 'r'+(i+1)+'c'+(thisFlight.airplane_seat_column[j])); // Change this to accept alphabatical for column
+          $seat.html( ( i + 1 ) + ( thisFlight.airplane_seat_column[ j ] ) ); // Change this to accept letters
+          $seat.attr('id',( i+1 ) + ( thisFlight.airplane_seat_column[ j ] ) ); // Change this to accept alphabatical for column
 
           $seat.attr("data-row", i + 1);
           $seat.attr("data-column", thisFlight.airplane_seat_column[j]); // Change this to accept letters
@@ -79,6 +79,7 @@ app.FlightView = Backbone.View.extend( {
         $( "#flightsearch" ).append( $row );
       }
     };
+
     var renderBookedSeatPlan = function () {
       var seats = $( ".seat" );
 
@@ -99,6 +100,10 @@ app.FlightView = Backbone.View.extend( {
                 console.log( $( seatReserved ).html() );
                 $( seatReserved ).css( "background", "tomato" );
                 seat.innerHTML = thisFlight.user.first_name;
+               }
+               else {
+                 $( seatReserved ).css( "background", "tomato" );
+                 seat.innerHTML = "Sold";
                }
              }
              else {

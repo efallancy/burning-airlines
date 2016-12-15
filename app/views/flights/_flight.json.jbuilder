@@ -11,6 +11,11 @@ if @current_user
 else
   json.user nil
 end
+if flight.reservations
+  json.reservations flight.reservations
+else
+  json.reservations nil
+end
 
 
 json.url flight_url(flight, format: :json)
