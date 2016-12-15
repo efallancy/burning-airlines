@@ -9,6 +9,7 @@ app.FlightView = Backbone.View.extend( {
 
   seatClicked: function (e) {
     var thisFlight = this.model.toJSON();
+    
     if ( thisFlight.user !== null ) {
     // this code should only run if e.currentTarget does not have class of .reserved
     var row = $(e.currentTarget).data("row");
