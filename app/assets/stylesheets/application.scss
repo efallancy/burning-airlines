@@ -157,6 +157,7 @@ div#plane {
   margin-bottom: 10px;
   overflow: hidden;
   display: block;
+  padding: 1px calc( 100% / 3 );
 }
 
 div.seat {
@@ -167,6 +168,14 @@ div.seat {
   background: dodgerblue;
 }
 
+
 div.seat.taken {
   background-color: tomato;
+}
+
+
+#user_first_name,
+#user_last_name {
+
+
 }

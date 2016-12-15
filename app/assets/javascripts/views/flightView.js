@@ -7,17 +7,18 @@ app.FlightView = Backbone.View.extend( {
     'click .seat': 'seatClicked'
   },
 
-
   seatClicked: function (e) {
+    var thisFlight = this.model.toJSON();
+    if ( thisFlight.user !== null ) {
     // this code should only run if e.currentTarget does not have class of .reserved
     var row = $(e.currentTarget).data("row");
     var column = $(e.currentTarget).data("column");
     console.log( row, column );
     $(e.currentTarget).toggleClass("taken");
+    $( e.currentTarget ).html( thisFlight.user.first_name );
     // Create a new reservation model
     var reservation = new app.Reservation();
     // Now we need to set all the attributes of that Reservation model.
-    var thisFlight = this.model.toJSON();
 
     reservation.set( {
       seat_row: row,
@@ -27,6 +28,10 @@ app.FlightView = Backbone.View.extend( {
     } );
 
     reservation.save();
+    }
+  else {
+      alert("You Must Be Logged In To Book");
+    }
 
     // Render the view
 
@@ -61,11 +66,11 @@ app.FlightView = Backbone.View.extend( {
         for (var j = 0; j < columns; j += 1 ) {
           var $seat = $("<div>").addClass("seat");
 
-          $seat.html("r"+(i+1)+"c"+(j+1)); // Change this to accept alphabatical,  E.g 21B
-          $seat.attr('id', 'r'+(i+1)+'c'+(j+1)); // Change this to accept alphabatical for column
+          $seat.html("r"+(i+1)+"c"+(j+1)); // Change this to accept letters
+          $seat.attr('id', 'r'+(i+1)+'c'+(thisFlight.airplane_seat_column[j])); // Change this to accept alphabatical for column
 
           $seat.attr("data-row", i + 1);
-          $seat.attr("data-column", j + 1); // Change this to accept alphabatical
+          $seat.attr("data-column", thisFlight.airplane_seat_column[j]); // Change this to accept letters
 
           $row.append( $seat );
         }
