@@ -157,6 +157,7 @@ div#plane {
   margin-bottom: 10px;
   overflow: hidden;
   display: block;
+  padding: 1px calc( 100% / 3 );
 }
 
 div.seat {
@@ -165,4 +166,11 @@ div.seat {
   margin-right: 10px;
   float: left;
   background: dodgerblue;
+}
+
+
+
+#user_first_name,
+#user_last_name {
+
 }
