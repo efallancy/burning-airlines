@@ -67,7 +67,7 @@ class FlightsController < ApplicationController
     #
     # @number_of_seats = @rows * @columns
 
-    @row = @airplane.rows
+    @rows = @airplane.rows
     @columns = @airplane.columns
 
     @number_of_seats = @rows * @columns
